@@ -34,11 +34,30 @@ function App() {
   ]
 // const [durum, setDurum] = useState(0)
 
+const [ad, setAd] = useState("")
+const [soyad, setSoyad] = useState("")
+
+console.log(ad, "<<<<<< ad")
+
+const formuDenetle=(event)=>{
+  event.preventDefault();
+  if (ad === "") {
+    alert("ad alanı boş olamaz")
+    return
+  }
+ 
+  if (soyad === "") {
+    alert("soyad alanı boş geçme")
+    return
+  }
+  alert("form başarıyla gönderildi")
+}
+
 // eger map kullanıyorsak return div e bir key probo vermemiz gerekir.
   return (
     <div  className="App">
 
-      <div>
+      {/* <div>
         {ogrenci.map((item, index)=>
          {
           if(item.yasi >= 20 ){
@@ -54,7 +73,25 @@ function App() {
          }
 
         )}
-      </div>
+
+
+        
+      </div> */}
+
+      <form onSubmit={formuDenetle} >
+        <div>
+          <br></br>
+          <label>Adı : </label>
+        <input placeholder='Alex' value={ad} onChange={(event)=>setAd(event.target.value)}/>
+        <br/> <br/>
+
+        <label>Soyadı : </label>
+       
+       <input placeholder='Ferguson' value={soyad} onChange={(event)=> setSoyad(event.target.value)}/>
+      <br/><br/>
+      <button type='submit'>Gönder</button>
+        </div>
+      </form>
 
 
 
