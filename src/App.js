@@ -33,19 +33,27 @@ function App() {
 
   ]
 // const [durum, setDurum] = useState(0)
+
+// eger map kullanıyorsak return div e bir key probo vermemiz gerekir.
   return (
     <div  className="App">
 
       <div>
-        {ogrenci.map((item, index)=>(
-          <li key={index}>
-          <p>Adı: {item.name}</p>
-          <p>Soyadı: {item.surname}</p>
-          <p>Sınıfı: {item.sinifi}</p>
-          <p>Yaşı: {item.yasi}</p>
-        </li>
+        {ogrenci.map((item, index)=>
+         {
+          if(item.yasi >= 20 ){
+            return(
+              <div key={index}>
+                <h3>Adı:{item.name} </h3>
+                <h3> Soyadı: {item.surname}</h3>
+                <p>Sınıfı :{item.sinifi}</p>
+                <p> Yaşı: {item.yasi}</p>
+              </div>
+            )
+          }
+         }
 
-        ))}
+        )}
       </div>
 
 
